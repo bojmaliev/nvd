@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript arrays</title>
+</head>
+<body>
+
+<h1>Напреден веб дизајн вежби</h1>
+<p>Paragraph number no: 1<br/><span id="cars"></span><br/><span id="otherPart"></span></p>
+<p>Paragraph number no: 2<br /><span id="length"></span></p>
+<button onclick="otherButton()">Array Iteration</button>
+<button onclick="showArraysLength()">Show arrays Length</button>
+
+<script>
+    var cars = ["Saab", "Volvo", "BMW", "Mercedes", "Zastava"];
+    var numbers = [2,5,8,243,2,6,2432,5,653,44,4345,5,77,332];
+
+    function showArraysLength() {
+        document.getElementById("length").innerHTML = "Length of numbers: "+numbers.length+"<br />Length of cars:"+cars.length;
+    }
+    function otherButton() {
+        document.getElementById("cars").innerHTML="";
+        cars.forEach((a,i)=> document.getElementById("cars").innerHTML+=i+1+". "+a+" ");
+
+        var sum = numbers.reduce((acc,now) => acc+now);
+        var average=sum/numbers.length;
+
+        document.getElementById("otherPart").innerText = "The sum of the numbers is: "+sum+" and the Average is: "+average;
+    }
+
+</script>
+
+</body>
+</html>

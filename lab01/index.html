@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>First web site</title>
+    <script>
+        var number =3;
+    </script>
+</head>
+<body>
+<p>Креирајте вредност, доделете и вредност и прикажете ја:</p>
+<p id="yourID"></p>
+<button onclick="yourFunctionName()">Кликни ме </button>
+
+<p id="helloWorld"></p>
+<button onclick="helloWorld()">Hello world </button>
+<script>
+    function yourFunctionName() {
+        var v1 = "Kako si";
+        var v2 = 55;
+        var v3 = true;
+        document.getElementById("yourID").innerText = v1+" "+v2+" "+v3;
+    }
+    function helloWorld() {
+        var hello = "Hello ";
+        hello+="World";
+
+        document.getElementById("helloWorld").innerText = hello;
+    }
+</script>
+</body>
+</html>

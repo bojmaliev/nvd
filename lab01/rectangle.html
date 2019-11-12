@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body onload="loaded()">
+
+<h1>Напреден веб дизајн вежби</h1>
+<p><b>Paragraph no 1</b></p>
+<p id="rez1"></p>
+<p><b>Paragraph no 2</b></p>
+<p id="rez2"></p>
+<button onclick="calculate()">Calculate Perimetar</button>
+<script>
+    function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    Rectangle.prototype.PrintRectangle = function () {
+        return "Rectangle width is " + this.width + " and Rectangle height is " + this.height;
+    };
+    Rectangle.prototype.RectanglePerimetar = function () {
+        return this.width*2+this.height*2;
+    };
+
+    var prav1 = new Rectangle(5,10);
+    var prav2 = new Rectangle(10,24);
+    function loaded(){
+        document.getElementById("rez1").innerHTML = prav1.PrintRectangle()+"<br/>"+prav2.PrintRectangle();
+    }
+    function calculate() {
+        var p1 = prav1.RectanglePerimetar();
+        var p2 = prav2.RectanglePerimetar();
+
+        document.getElementById("rez2").innerHTML = "The biggest Rectangle has perimeter of "+(p1>p2 ? p1 : p2);
+    }
+
+
+
+</script>
+
+</body>
+</html>
