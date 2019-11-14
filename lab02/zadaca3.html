@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 3</title>
+</head>
+<body>
+
+<script>
+    //zadaca3.1
+    let p = document.createElement("span");
+    p.innerText = "Upload file(s):";
+    document.body.appendChild(p);
+
+    let files_container = document.createElement("div");
+    document.body.appendChild(files_container);
+
+    let input_file = document.createElement("input");
+    input_file.setAttribute("type", "file");
+    input_file.setAttribute("style", "display:block;");
+    files_container.appendChild(input_file);
+
+
+    let add_file = document.createElement("button");
+    add_file.innerText = "Add file";
+    add_file.addEventListener("click", function () {
+        let new_input_file = document.createElement("input");
+        new_input_file.setAttribute("type", "file");
+        new_input_file.setAttribute("style", "display:block;");
+
+        files_container.appendChild(new_input_file);
+
+    });
+    document.body.appendChild(add_file);
+
+    let remove_file = document.createElement("button");
+    remove_file.innerText = "Remove last file";
+    remove_file.addEventListener("click", function () {
+        let last_child = files_container.lastChild;
+        if (last_child !== null)
+            files_container.removeChild(last_child);
+
+    });
+    document.body.appendChild(remove_file);
+    //zadaca3.2
+
+    document.body.appendChild(document.createElement("br"));
+
+    let span = document.createElement("span");
+    span.innerText = "Zdravoo";
+    document.body.appendChild(span);
+
+    document.body.appendChild(document.createElement("br"));
+
+    let replace_anchor = document.createElement("button");
+    replace_anchor.innerText = "Replace with anchor";
+    replace_anchor.addEventListener("click", function () {
+        let anchor = document.createElement("a");
+        anchor.setAttribute("href", "#");
+        anchor.innerText = span.innerText;
+
+        document.body.replaceChild(anchor, span);
+    });
+    document.body.appendChild(replace_anchor);
+    document.body.appendChild(document.createElement("br"));
+    //zadaca 3.3
+
+    let pictures = [{
+        src: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg", width: 240, height: 160
+    }, {
+        src: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg", width: 320, height: "195"
+    }, {
+        src: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg", width: 500, height: 343
+    }];
+
+
+
+    let createPicture = document.createElement("button");
+    createPicture.innerText = "Select a picture";
+    document.body.appendChild(createPicture);
+    document.body.appendChild(document.createElement("br"));
+
+    let picture = document.createElement("img");
+    document.body.appendChild(picture);
+
+
+    createPicture.addEventListener("click", function () {
+        let index = Math.floor((Math.random() * pictures.length));
+
+        let newPicture = document.createElement("img");
+        newPicture.setAttribute("src", pictures[index].src);
+        newPicture.setAttribute("width", pictures[index].width);
+        newPicture.setAttribute("height", pictures[index].height);
+
+        document.body.replaceChild(newPicture, picture);
+        picture=newPicture;
+
+
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca1.x</title>
+</head>
+<body>
+<script>
+    //zadaca1.1
+    function flatten(array) {
+        var newArr = [];
+        array.forEach(a => {
+            if (Array.isArray(a)) {
+                newArr = newArr.concat(flatten(a));
+            } else {
+                newArr.push(a);
+            }
+        });
+        return newArr;
+    }
+
+    console.log(flatten([1, [2], [3, [[4]]], [5, 6]]));
+
+
+    //zadaca1.2
+
+
+    function difference(numbers1, numbers2) {
+        const newArr = [...numbers1];
+        flatten(numbers2).forEach(b => {
+            if(newArr.indexOf(b) === -1){
+                newArr.push(b);
+            }
+        });
+        return newArr;
+    }
+
+    console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+    console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]));
+    console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 2</title>
+</head>
+<body>
+<script>
+    //zadaca2.1
+    function fibrionacci(){
+        let f0 = 0;
+        let f1 = 1;
+        return function () {
+            let oldf0 = f0;
+            let oldf1 = f1;
+            f0 = oldf1;
+            f1 = oldf0 + oldf1;
+
+            return f0;
+        }
+    }
+    var fib_next = fibrionacci();
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+    console.log(fib_next());
+
+    //zadaca 2.2
+    function last_call() {
+        var last_called = new Date().getTime();
+        return function(){
+            var old = last_called;
+            last_called =  new Date().getTime();
+            return last_called-old;
+        };
+    }
+    var last_call_func = last_call();
+
+    console.log(last_call_func());
+    console.log(last_call_func());
+    setTimeout(() => console.log(last_call_func()), 1000);
+</script>
+
+
+</body>
+</html>
