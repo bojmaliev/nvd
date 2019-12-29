@@ -1,0 +1,70 @@
+
+//dodadete go bodyStyle.scss dokumentot
+@import "bodyStyleBeginning";
+
+
+//promenlivi:
+
+$font-first: 18px;
+$font-second: 14px;
+$height:250px;
+$background_color: lighten(green, 60);
+$left:50px;
+$right:50px;
+$top:400px;
+.first{
+  font-size: $font-first;
+  font-weight:bold;
+}
+
+.second{
+  font-size: $font-second;
+
+}
+%absolute{
+  position: absolute;
+
+}
+.containerOne{
+
+  height:$height;
+  background-color: $background-color;
+
+  .left{
+    @extend %absolute;
+    top:$top;
+    left:$left;
+  }
+
+  .right{
+    @extend %absolute;
+    right:$right;
+    top:$top;
+
+  }
+}
+
+.boxes{
+  //zaednicki karakteristiki]
+  padding:5px 10px;
+}
+
+.containerTwo{
+  @extend %absolute;
+  left:50%;
+  top:400px;
+  transform: translate(-50%,0);
+
+  .boxOne{
+    //dodadete go veke definiraniot kod vo .boxes i soodvetno dopolnete go
+    @extend .boxes;
+    border:1px solid red;
+  }
+  .boxTwo{
+    //dodadete go veke definiraniot kod vo .boxes i soodvetno dopolnete go
+    @extend .boxes;
+    border:1px solid blue;
+
+  }
+
+}
