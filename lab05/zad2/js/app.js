@@ -7,3 +7,34 @@ const products = [
 
 
 // Your Code goes here
+
+let app = new Vue({
+	el: "#app",
+	data:{
+		items: products,
+		cartItems: []
+	},
+	methods:{
+		addToCart: function (item) {
+			const existing = this.cartItems.find(a=> a.id === item.id);
+			if(existing)existing.qty += item.qty;
+			else this.cartItems.push({...item});
+			item.qty = 1;
+		}
+	}
+
+});
+
+Vue.component("shopping-cart", {
+	props:["items"],
+	methods:{
+		removeItem: function (remIndex) {
+			this.items.splice(remIndex, 1);
+		}
+	},
+	computed:{
+		Total: function () {
+			return this.items.map(a=> a.qty*a.price).reduce((acc, item) => acc+item, 0);
+		}
+	}
+});

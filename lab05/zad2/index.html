@@ -27,7 +27,7 @@
             </div>
             <div class="modal-body">
 			   <!-- This is an inline component. It works as intended for all items in cartItems array -->
-               <shopping-cart inline-template :items="cartItems"> 
+               <shopping-cart inline-template :items="cartItems">
                   <div>
                      <table class="table table-cart">
                         <tr v-for="(item, index) in items">
@@ -63,13 +63,13 @@
 	
    <div class="container">
       <div class="row">
-         <div class="col-xs-3 text-center" >
-            <img class="img-responsive" alt="">
+         <div class="col-xs-3 text-center" v-for="(item, index) in items">
+            <img class="img-responsive" alt="" v-bind:src="item.image">
             <h5>{{ item.title }}</h5>
             <h6>${{ item.price | formatCurrency }}</h6>
             <p class="text-center"><input v-model="item.qty" type="number" class="form-control" placeholder="Qty" min="1"/></p>
-							 
-               <button class="btn btn-sm btn-primary">Add to Cart</button>
+
+               <button class="btn btn-sm btn-primary" v-on:click="addToCart(item)">Add to Cart</button>
             </p>
          </div>
       </div>
