@@ -1,0 +1,53 @@
+body {
+  background: pink;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.first {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.second {
+  font-size: 14px;
+}
+
+.containerTwo, .containerOne .right, .containerOne .left {
+  position: absolute;
+}
+
+.containerOne {
+  height: 250px;
+  background-color: #b3ffb3;
+}
+.containerOne .left {
+  top: 400px;
+  left: 50px;
+}
+.containerOne .right {
+  right: 50px;
+  top: 400px;
+}
+
+.boxes, .containerTwo .boxTwo, .containerTwo .boxOne {
+  padding: 5px 10px;
+}
+
+.containerTwo {
+  left: 50%;
+  top: 400px;
+  transform: translate(-50%, 0);
+}
+.containerTwo .boxOne {
+  border: 1px solid red;
+}
+.containerTwo .boxTwo {
+  border: 1px solid blue;
+}
+
+/*# sourceMappingURL=styleFancyBeginning.css.map */
