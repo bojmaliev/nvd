@@ -18,7 +18,48 @@ $z-index-navigation-button: 500;
 $z-index-navigation-inner: $z-index-navigation-button + 25;
 
 // Your SCSS code here.
-
+.material--burger {
+  cursor: pointer;
+  padding: 12.5px;
+  position: relative;
+  width: $nav-size;
+  height: $nav-size;
+  %styles{
+    width: 25px;
+    background-color: #445566;
+    height: 3px;
+    position: absolute;
+    z-index: 525;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    transition: background-color 300ms ease-in-out;
+  }
+  span {
+    @extend %styles;
+    top: 50%;
+    transform-origin: center center;
+    animation-name: material-menu;
+  }
+  %befaft{
+    content: "";
+    display: block;
+  }
+  span:before{
+    @extend %befaft;
+    @extend %styles;
+    top: 300%;
+    transform-origin: right bottom;
+    animation-name: material-menu-before;
+  }
+  span:after{
+    @extend %befaft;
+    @extend %styles;
+    bottom: 300%;
+    transform-origin: right top;
+    animation-name: material-menu-after;
+  }
+}
 
 h1 {
   text-align: center;
